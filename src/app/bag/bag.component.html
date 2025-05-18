@@ -1,0 +1,46 @@
+<div class="bags-div">
+    <div class="top">
+        <div class="header-div">
+            <div class="exit">
+                    <img src="/assets/exit.png" alt="">
+            </div>
+
+            <div class="header">
+                <h2><b>Your Bag</b></h2>
+            </div>
+
+            <div class="blank">
+                <img src="" alt="">
+            </div>
+
+        </div>
+    </div>
+
+    <br>
+
+
+    <div class="bag-content">
+
+        <div class="parent-container">
+            <div class="item-container" *ngFor="let item of items">
+                <div class="item-image-info">
+                  <img [src]="item.imageUrl" [alt]="item.name" class="item-image" />
+                  <div>
+                    <!-- <div class="item-name-brand">{{ item.brand }}</div> -->
+                    <div class="item-name">{{ item.name }}</div>
+                    <div class="item-price">₱ {{ item.price }}</div>
+                  </div>
+                </div>
+                <div class="quantity-control">
+                  <button class="quantity-button" (click)="decreaseQuantity(item)">-</button>
+                  <div class="quantity-value">{{ item.quantity }}</div>
+                  <button class="quantity-button" (click)="increaseQuantity(item)">+</button>
+                </div>
+              </div>
+        </div>
+ 
+       
+    </div>
+
+    
+</div>

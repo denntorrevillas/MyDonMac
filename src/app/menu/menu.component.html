@@ -10,10 +10,10 @@
     
                     <div class="notif-bag">
                          <div class="notif">
-                            <img src="/assets/notification.png" alt="">
+                            <button><img src="/assets/notification.png" alt=""></button>
                          </div>
                          <div class="bag">
-                            <img src="/assets/bag.png" alt="">
+                            <button (click)="onBag()"><img src="/assets/bag.png" alt=""></button>
                          </div>
                     </div>
                 </div>
@@ -29,50 +29,49 @@
     
     <br>
 
-    <div class="cards">
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="categories">
+        <div class="cats-div">
+            <div class="cat">
+                <img src="/assets/hot.png" alt="">
+                <p>Hot Drinks</p>
             </div>
         </div>
 
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+        <div class="cats-div">
+          <div class="cat">
+              <img src="/assets/cold.png" alt="">
+              <p>Hot Drinks</p>
           </div>
+        </div>
 
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+        <div class="cats-div">
+          <div class="cat">
+              <img src="/assets/ice.png" alt="">
+              <p>Hot Drinks</p>
           </div>
-
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary" id="">Go somewhere</a>
-            </div>
-          </div>
+        </div>
     </div>
+
+    <br>
+
+    <div class="container my-4">
+      <div class="row g-4">
+        <div class="col-sm-6 col-md-4 col-lg-3 d-flex" *ngFor="let product of products">
+          <div class="card flex-fill" style="width: 100%;">
+            <img [src]="product.image" class="card-img-top" alt="{{ product.description }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ product.description }}</h5>
+              <p class="card-text">Price: {{ product.price }}</p>
+              <!-- Use RouterLink with productNo -->
+              <button (click)="viewProduct()" class="btn btn-primary">VIEW</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
 </div>

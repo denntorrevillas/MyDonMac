@@ -1,0 +1,108 @@
+.header-div{
+    background-color: #FFC300;
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 16px;
+    align-items: center;
+}
+.bag-content{
+    display: flex;
+    justify-content: center;
+}
+.order-card {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;    max-width: 600px;
+    gap: 16px;
+}
+
+
+
+
+/* .bag-content{
+    justify-self: unset;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+} */
+.item-container {
+    display: flex; /* To arrange content within the card */
+    flex-direction: row; /* Image/info on the left, quantity on the right */
+    align-items: center; /* Vertically align items in the row */
+    justify-content: space-between; /* Space out image/info and quantity */
+    padding: 15px;
+
+    margin-bottom: 16px; /* Spacing between cards */
+    background-color: #f9f9f9; /* Light background color for the card */
+    border-radius: 8px; /* Rounded corners for the card */
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+  
+  .item-image-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .item-image {
+    width: 70px; /* Adjust size as needed */
+    height: 70px; /* Adjust size as needed */
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .item-details {
+    display: flex;
+    flex-direction: column; /* Brand, name, price stacked vertically */
+  }
+  
+  .item-name-brand {
+    font-size: 0.85em;
+    color: #555;
+    margin-bottom: 3px;
+  }
+  
+  .item-name {
+    font-weight: bold;
+    margin-bottom: 2px;
+  }
+  
+  .item-price {
+    color: #333;
+    font-size: 0.9em;
+  }
+  
+  .quantity-control {
+    display: flex;
+    align-items: center;
+    background-color: #FFC300;
+    border-radius: 12px;
+  }
+  
+  .quantity-button {
+    background-color: #FFC300;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 1em;
+    cursor: pointer;
+    margin: 0 5px;
+  }
+  
+  .quantity-value {
+    font-weight: bold;
+    margin: 0 10px;
+  }
+
+  .parent-container {
+    
+    display: flex;
+    margin-bottom: 16px;
+    padding: 0px 16px;
+    flex-direction: column; /* This ensures vertical stacking of children */
+    /* Other optional styles for the parent */
+  }
