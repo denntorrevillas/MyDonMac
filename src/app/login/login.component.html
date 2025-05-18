@@ -1,42 +1,45 @@
 <div class="main-div">
-    <div class="login-div">
+  <div class="login-div">
 
-        <div class="left">
-            <div class="logo">
-                    <img src="assets/logo.png" alt="">
-                    <h3>DonMacGo</h3>
-                    
-            </div>
-        </div>
-        
-        <div class="right">
-          
-               <div class="user-input">
-                        <h1><b>Log In</b></h1>
-                 <div class="cred">
-                    <label for="">Email Address</label>
-                    <input type="email" name="" id="" placeholder="Enter your Email Address">
-                 </div>
-
-                 <div class="cred">
-                   <label for=""> Password</label>
-                   <input type="password" name="" id="" placeholder="Enter your Password">
-                 </div>
-
-                 <div class="button">
-                    <button type="button" (click)="onMenu()" >LOG IN</button>
-
-                 </div>
-                 
-                    <br>
-                 <div class="links">
-                        <p>Don't have an account?<button type="button" (click)="onSignUp()" >Sign Up</button></p>
-                 </div>
-
-                </div>
-
-                
-        </div>
-
+    <div class="left">
+      <div class="logo">
+        <img src="assets/logo.png" alt="">
+        <h3>DonMacGo</h3>
+      </div>
     </div>
+
+    <div class="right">
+      <div class="user-input">
+        <h1><b>Login</b></h1>
+
+        <!-- Show error message -->
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
+
+        <div class="cred">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email address" [(ngModel)]="email" name="email">
+        </div>
+
+        <div class="cred">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter your password" [(ngModel)]="password" name="password">
+        </div>
+
+        <div class="button">
+          <button type="button" (click)="onLogin()">LOG IN</button>
+        </div>
+
+        <br>
+
+        <div class="links">
+          <p>Don't have an account?
+            <button type="button" (click)="onSignUp()">Sign Up</button>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>

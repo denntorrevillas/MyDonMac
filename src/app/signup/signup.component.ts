@@ -1,10 +1,14 @@
+// signup.component.ts
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.css'],
+  standalone: true,
+  imports: [FormsModule]
 })
 export class SignupComponent {
   fullName: string = '';
@@ -13,34 +17,37 @@ export class SignupComponent {
   deliveryAddress: string = '';
   password: string = '';
 
-  constructor(private router: Router) {}
-
-  // Method to handle the sign-up functionality
+  constructor(private router: Router) {
+    const isLoggedIn = localStorage.getItem('loggedIn');
+    if (isLoggedIn === 'true') {
+      this.router.navigate(['/menu']); // redirect to menu if already logged in
+    }
+  }
+  
   onSignUp(): void {
-    // Log the user data (for demo purposes)
-    console.log({
+    const userData = {
       fullName: this.fullName,
       mobileNumber: this.mobileNumber,
       email: this.email,
       deliveryAddress: this.deliveryAddress,
       password: this.password
-    });
-
-    // Store the user data in local storage (optional, for demo purposes)
-    localStorage.setItem('user', JSON.stringify({
-      fullName: this.fullName,
-      mobileNumber: this.mobileNumber,
-      email: this.email,
-      deliveryAddress: this.deliveryAddress,
-      password: this.password
-    }));
-
-    // Navigate to the login page after sign-up
+    };
+  
+    // Check if a user with the same email already exists
+    const existingUser = JSON.parse(localStorage.getItem('user') || '{}');
+    if (existingUser?.email === userData.email) {
+      alert('An account with this email already exists.');
+      return;
+    }
+  
+    // Save new user to localStorage
+    localStorage.setItem('user', JSON.stringify(userData));
+    alert('Sign up successful! Please log in.');
     this.router.navigate(['/login']);
   }
-
-  // Method to navigate to the login page
+  
   onLogIn(): void {
     this.router.navigate(['/login']);
   }
+  
 }

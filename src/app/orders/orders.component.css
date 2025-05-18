@@ -1,0 +1,21 @@
+.header-div{
+    background-color: #FFC300;
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 16px;
+    align-items: center;
+}
+.exit button{
+    background-color: transparent;
+    border-color: transparent;
+}
+.profile-info{
+    display: flex;
+    justify-content: center;
+}
+*{
+    margin: 0;
+}
+
+
+

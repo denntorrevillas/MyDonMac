@@ -5,12 +5,16 @@ import { SignupComponent } from './signup/signup.component';
 import { ProductComponent } from './product/product.component';
 import { FormsModule } from '@angular/forms';
 import { BagComponent } from './bag/bag.component';
+import { ProfileComponent } from './profile/profile.component';
+import { OrdersComponent } from './orders/orders.component';
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'menu', component: MenuComponent },
   { path: 'product', component: ProductComponent },
-  { path: 'bag', component: BagComponent }
+  { path: 'bag', component: BagComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'orders', component: OrdersComponent }
  // Add this route
 ];

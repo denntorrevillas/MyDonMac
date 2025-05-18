@@ -1,46 +1,127 @@
 <div class="bags-div">
-    <div class="top">
-        <div class="header-div">
-            <div class="exit">
-                    <img src="/assets/exit.png" alt="">
-            </div>
+  <div class="top">
+    <div class="header-div">
+      <div class="exit">
+        <button type="button" (click)="onMenu()">
+          <img src="assets/exit.png" alt="" />
+        </button>
+      </div>
 
-            <div class="header">
-                <h2><b>Your Bag</b></h2>
-            </div>
+      <div class="header">
+        <h2><b>Your Bag</b></h2>
+      </div>
 
-            <div class="blank">
-                <img src="" alt="">
-            </div>
-
-        </div>
+      <div class="exit">
+        <button type="button" (click)="onMenu()" style="opacity: 0;">
+          <img src="assets/exit.png" alt="" />
+        </button>
+      </div>
     </div>
+  </div>
 
-    <br>
+  <br />
 
-
+  <div class="bottom">
     <div class="bag-content">
-
-        <div class="parent-container">
-            <div class="item-container" *ngFor="let item of items">
-                <div class="item-image-info">
-                  <img [src]="item.imageUrl" [alt]="item.name" class="item-image" />
-                  <div>
-                    <!-- <div class="item-name-brand">{{ item.brand }}</div> -->
-                    <div class="item-name">{{ item.name }}</div>
-                    <div class="item-price">₱ {{ item.price }}</div>
-                  </div>
-                </div>
-                <div class="quantity-control">
-                  <button class="quantity-button" (click)="decreaseQuantity(item)">-</button>
-                  <div class="quantity-value">{{ item.quantity }}</div>
-                  <button class="quantity-button" (click)="increaseQuantity(item)">+</button>
-                </div>
-              </div>
+      <div class="parent-container">
+        <div class="item-container" *ngFor="let item of items">
+          <div class="item-image-info">
+            <img [src]="item.imageUrl" [alt]="item.name" class="item-image" />
+            <div>
+              <div class="item-name">{{ item.name }}</div>
+              <div class="item-price">₱ {{ item.price }}</div>
+            </div>
+          </div>
+          <div class="quantity-control">
+            <button class="quantity-button" (click)="decreaseQuantity(item)">-</button>
+            <div class="quantity-value">{{ item.quantity }}</div>
+            <button class="quantity-button" (click)="increaseQuantity(item)">+</button>
+          </div>
         </div>
- 
-       
+      </div>
     </div>
 
-    
+    <div class="footer">
+      <div class="subtotal-div">
+        <div class="subtotal-content">
+          <p>Subtotal</p>
+          <p>₱ {{ getSubtotal() }}</p>
+        </div>
+
+        <div class="subtotal-content">
+          <p>Delivery Fee</p>
+          <p>₱ {{ shippingFee }}</p>
+        </div>
+        <hr />
+        <div class="subtotal-content">
+          <p>Total</p>
+          <p>₱ {{ getTotal() }}</p>
+        </div>
+        <br />
+        <div class="order-button">
+          <button type="button" (click)="placeOrder()"><b>PLACE ORDER</b></button>
+        </div>
+        <br />
+      </div>
+    </div>
+
+    <!-- Order Summary Modal -->
+    <div class="modal" *ngIf="showOrderSummary">
+      <div class="modal-content">
+        <h3><b>Order Summary</b></h3>
+       
+        <br>
+        
+
+        <!-- Consumer Information -->
+        <div class="consumer-info">
+          <h5><b>Consumer Information</b></h5>
+          
+         
+          <p><strong>Name:</strong> {{ userName }}</p>
+          <p><strong>Address:</strong> {{ address }}</p>
+          <p><strong>Phone Number:</strong> {{ phoneNumber }}</p>
+          <p><strong>Order No.</strong> {{ orderNo }}</p>
+          <br>
+
+        </div>
+
+        <ul style="list-style-type: none;">
+          <ng-container *ngFor="let item of items">
+            <li *ngIf="item.quantity > 0">
+              <div style="display: flex; justify-content: space-between; list-style: none;">
+                <p>{{ item.name }} (x{{ item.quantity }})</p>
+                <p> ₱{{ item.price * item.quantity }}</p>
+              </div>
+            </li>
+          </ng-container>
+        </ul>
+        <hr>
+
+        <div style="display: flex;
+        justify-content: space-between;">
+          <p>Subtotal:</p>
+          <p> ₱{{ getSubtotal() }}</p>
+        </div>
+
+        <div style="display: flex;
+        justify-content: space-between;">
+             <p>Shipping Fee: </p>
+             <p>₱{{ shippingFee }}</p>
+        </div>
+
+      
+       
+        <hr />
+        <h5 style="text-align: right;"><b>Total: ₱{{ getTotal() }}</b></h5>
+        <br>
+        <button
+          (click)="showOrderSummary = false"
+          style="background-color: #ffc300; height: 36px; border-radius: 12px; border-color: transparent;"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

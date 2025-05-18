@@ -85,20 +85,63 @@
     justify-content: space-evenly;
 }
 .cats-div{
-    border-style: solid;
-    border-width: 1px;
-    border-color: #1c1c1c;
+   
     border-radius: 12px;
-    
+        
     display: grid;
     justify-content: center;
 }
 .cat{
+    border-style: solid;
+    border-width: 1px;
+    border-color: #b0b0b0;
     text-align: center;
+    border-radius: 12px;
+   
+}
+.cat img{
+    width: 70%;
 }
 .menus * button{
     background-color: transparent;
     border-color: transparent;
 }
   
+/* Sticky Bottom Div Styles */
+.sticky-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #FFC300;
+    padding: 10px 20px;
+    text-align: center;
+    z-index: 1000; /* Ensure it stays on top of other content */
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow for better visibility */
+  }
+  
+  .sticky-bottom button {
+    background-color: transparent;
+    color: #1c1c1c;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .sticky-bottom button img {
+    margin-right: 8px;
+  }
+  
+  .sticky-bottom button:hover {
+    opacity: 0.8;
+  }
+  .notif{
+    width: 90%;
+  }
+  .bottom{
+    display: flex;
+    justify-content: center;
+  }
   

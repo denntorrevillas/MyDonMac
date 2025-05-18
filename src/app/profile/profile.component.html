@@ -1,0 +1,79 @@
+<div class="profile-div">
+    <div class="top">
+      <div class="header-div">
+        <div class="exit">
+          <button type="button" (click)="onMenu()">
+            <img src="assets/exit.png" alt="exit" />
+          </button>
+        </div>
+  
+        <div>
+          <h1><b>Profile</b></h1>
+        </div>
+  
+        <div class="exit" style="visibility: hidden;">
+          <button type="button">
+            <img src="assets/exit.png" alt="exit" />
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="profile-info">
+      <form (ngSubmit)="saveProfile()" #profileForm="ngForm">
+        <div class="profile">
+  
+          <!-- Name -->
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            [(ngModel)]="user.name"
+            name="name"
+            required
+            class="form-control"
+          />
+  
+          <!-- Email -->
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            [(ngModel)]="user.email"
+            name="email"
+            required
+            class="form-control"
+          />
+  
+          <!-- Address -->
+          <label for="address">Address</label>
+          <input
+            type="text"
+            id="address"
+            [(ngModel)]="user.address"
+            name="address"
+            required
+            class="form-control"
+          />
+  
+          <!-- Phone Number -->
+          <label for="phone">Phone Number</label>
+          <input
+            type="text"
+            id="phone"
+            [(ngModel)]="user.phoneNumber"
+            name="phoneNumber"
+            required
+            class="form-control"
+          />
+  
+          <div class="buttons">
+            <button type="submit" class="save-btn">Save</button>
+            <button type="button" class="log-out-btn" (click)="logOut()">Log Out</button>
+          </div>
+  
+        </div>
+      </form>
+    </div>
+  </div>
+  

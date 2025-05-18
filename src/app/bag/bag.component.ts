@@ -1,101 +1,117 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-bag',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './bag.component.html',
   styleUrls: ['./bag.component.css'],
 })
 export class BagComponent {
-  items = [
-    {
-      imageUrl: '/assets/images/Pure Ube.jpg', brand: 'Don Barako',
-      name: 'Pure Ube',
-      price: 39,
-      quantity: 5,
-    },
-   
-    {
-      imageUrl: '/assets/images/Frozen Yougurt(Plain).jpg', brand: 'Don Barako',
-      name: 'Frozen Yougurt(Plain)',
-      price: 39,
-      quantity: 7,
-    },
+  shippingFee = 40;
 
-    {
-      imageUrl: '/assets/images/Iced Don Darko.jpg', brand: 'Don Barako',
-      name: 'Iced Don Darko',
-      price: 39,
-      quantity: 4,
-    },
+  items: any[] = [];
+  showOrderSummary = false;
 
-    {
-      imageUrl: '/assets/images/Hot Don Barako.jpg', brand: 'Don Barako',
-      name: 'Hot Don Barako',
-      price: 39,
-      quantity: 9,
-    },
+  userName: string = '';
+  address: string = '';
+  phoneNumber: string = '';
+  orderNo: string = '';
 
-    {
-      imageUrl: '/assets/images/Iced Donya Berry.jpg', brand: 'Don Barako',
-      name: 'Iced Donya Berry',
-      price: 39,
-      quantity: 6,
-    },
+  constructor(private router: Router) {
+    this.generateOrderNo();
+    this.loadCartItems();
+    this.loadUserInfo();
+  }
 
-    {
-      imageUrl: '/assets/images/Iced Black Forest_.jpg', brand: 'Don Barako',
-      name: 'Iced Black Forest',
-      price: 39,
-      quantity: 3,
-    },
+  generateOrderNo(): void {
+    const now = Date.now().toString();
+    const random = Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+    this.orderNo = `ORD-${now}-${random}`;
+  }
 
-    {
-      imageUrl: '/assets/images/Frozen Yogurt (Toppings).jpg', brand: 'Don Barako',
-      name: 'Frozen Yogurt (Toppings)',
-      price: 99,
-      quantity: 7,
-    },
+  loadCartItems(): void {
+    const cartData = localStorage.getItem('cart');
+    if (cartData) {
+      const parsedCart = JSON.parse(cartData);
+      this.items = parsedCart.map((item: any) => ({
+        imageUrl: item.image,
+        name: item.description,
+        price: item.price,
+        quantity: item.quantity,
+      }));
+    }
+  }
 
-    {
-      imageUrl: '/assets/images/Iced Oreo Coffee_.jpg', brand: 'Don Barako',
-      name: ' Iced Oreo Coffee',
-      price: 39,
-      quantity: 8,
-    },
+  loadUserInfo(): void {
+    const userData = localStorage.getItem('user');
+    if (userData) {
+      const user = JSON.parse(userData);
+      this.userName = user.fullName || user.name || 'N/A';
+      this.address = user.deliveryAddress || user.address || 'N/A';
+      this.phoneNumber = user.mobileNumber || user.phoneNumber || 'N/A';
+    }
+  }
 
-    {
-      imageUrl: '/assets/images/Hot Caramel.jpg', brand: 'Don Barako',
-      name: 'Hot Caramel',
-      price: 39,
-      quantity: 10,
-    },
-
-    {
-      imageUrl: '/assets/images/Frozen Yogurt( Sauce).jpg', brand: 'Don Barako',
-      name: 'Frozen Yogurt( Sauce)',
-      price: 99,
-      quantity: 5,
-    },
-
-    {
-      imageUrl: '/assets/images/Spanish Latte.jpg', brand: 'Don Barako',
-      name: 'Spanish Latte',
-      price: 39,
-      quantity: 3,
-    },
-   
-  ];
+  onMenu(): void {
+    this.router.navigate(['/menu']);
+  }
 
   increaseQuantity(item: any): void {
     item.quantity++;
+    this.updateCartStorage();
   }
 
   decreaseQuantity(item: any): void {
     if (item.quantity > 0) {
       item.quantity--;
+      this.updateCartStorage();
     }
+  }
+
+  placeOrder(): void {
+    this.saveOrder();
+    this.showOrderSummary = true;
+  }
+
+  saveOrder(): void {
+    const order = {
+      orderNo: this.orderNo,
+      userName: this.userName,
+      address: this.address,
+      phoneNumber: this.phoneNumber,
+      items: this.items.filter(item => item.quantity > 0),
+      subtotal: this.getSubtotal(),
+      shippingFee: this.shippingFee,
+      total: this.getTotal(),
+      timestamp: new Date().toISOString()
+    };
+
+    const existingOrders = JSON.parse(localStorage.getItem('orders') || '[]');
+    existingOrders.push(order);
+    localStorage.setItem('orders', JSON.stringify(existingOrders));
+
+    localStorage.removeItem('cart'); // optional clear
+  }
+
+  getSubtotal(): number {
+    return this.items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  }
+
+  getTotal(): number {
+    return this.getSubtotal() + this.shippingFee;
+  }
+
+  updateCartStorage(): void {
+    const cartToStore = this.items.map((item) => ({
+      image: item.imageUrl,
+      description: item.name,
+      price: item.price,
+      quantity: item.quantity,
+    }));
+    localStorage.setItem('cart', JSON.stringify(cartToStore));
   }
 }
