@@ -1,0 +1,16 @@
+{
+  "routes": {
+    "/MyDonMac": {},
+    "/MyDonMac/admin": {},
+    "/MyDonMac/adminLogIn": {},
+    "/MyDonMac/adminSignUp": {},
+    "/MyDonMac/bag": {},
+    "/MyDonMac/login": {},
+    "/MyDonMac/menu": {},
+    "/MyDonMac/notification": {},
+    "/MyDonMac/orders": {},
+    "/MyDonMac/product": {},
+    "/MyDonMac/profile": {},
+    "/MyDonMac/signup": {}
+  }
+}

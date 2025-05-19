@@ -1,0 +1,21 @@
+export default `<!DOCTYPE html><html lang="en" data-beasties-container><head><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="utf-8">
+  <title>MyDonMac</title>
+  <base href="/MyDonMac/">
+  
+  <style>@font-face{font-family:'Poppins';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/poppins/v23/pxiEyp8kv8JHgFVrJJbecmNE.woff2) format('woff2');unicode-range:U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;}@font-face{font-family:'Poppins';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/poppins/v23/pxiEyp8kv8JHgFVrJJnecmNE.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Poppins';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/poppins/v23/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}</style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>*{margin:0;padding:0;font-family:Poppins}
+</style><link rel="stylesheet" href="styles-24JM3Z6T.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-24JM3Z6T.css"></noscript><style ng-app-id="ng">.header-div[_ngcontent-ng-c830371431]{background-color:#ffc300;display:flex;justify-content:space-between;padding:24px 16px;align-items:center}.exit[_ngcontent-ng-c830371431]   button[_ngcontent-ng-c830371431]{background-color:transparent;border-color:transparent}.profile-info[_ngcontent-ng-c830371431]{display:flex;justify-content:center}*[_ngcontent-ng-c830371431]{margin:0}#order[_ngcontent-ng-c830371431]{box-shadow:#00000005 0 1px 3px,#1b1f2326 0 0 0 1px;border-radius:16px}</style></head>
+<body>
+  <app-root ng-version="19.2.8" ng-server-context="ssg"><router-outlet></router-outlet><app-orders _nghost-ng-c830371431><div _ngcontent-ng-c830371431 class="orders-div"><div _ngcontent-ng-c830371431 class="top"><div _ngcontent-ng-c830371431 class="header-div"><div _ngcontent-ng-c830371431 class="exit"><button _ngcontent-ng-c830371431 type="button"><img _ngcontent-ng-c830371431 src="assets/exit.png" alt="exit"></button></div><div _ngcontent-ng-c830371431><h1 _ngcontent-ng-c830371431><b _ngcontent-ng-c830371431>Orders</b></h1></div><div _ngcontent-ng-c830371431 class="exit" style="visibility: hidden;"><button _ngcontent-ng-c830371431 type="button"><img _ngcontent-ng-c830371431 src="assets/exit.png" alt="exit"></button></div></div></div><!----><!----></div></app-orders><!----></app-root>
+<script src="polyfills-FFHMD2TL.js" type="module"></script><script src="main-POQ33QVG.js" type="module"></script>
+
+</body></html>`;

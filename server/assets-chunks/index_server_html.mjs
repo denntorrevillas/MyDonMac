@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="en" data-beasties-container="">
+export default `<!doctype html>
+<html lang="en">
 <head><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <meta charset="utf-8">
   <title>MyDonMac</title>
@@ -14,8 +14,10 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<style>*{margin:0;padding:0;font-family:Poppins}</style><link rel="stylesheet" href="styles-24JM3Z6T.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-24JM3Z6T.css"></noscript></head>
-<body ngcm="">
+<link rel="stylesheet" href="styles-24JM3Z6T.css"></head>
+<body><script type="text/javascript" id="ng-event-dispatch-contract">(()=>{function p(t,n,r,o,e,i,f,m){return{eventType:t,event:n,targetElement:r,eic:o,timeStamp:e,eia:i,eirp:f,eiack:m}}function u(t){let n=[],r=e=>{n.push(e)};return{c:t,q:n,et:[],etc:[],d:r,h:e=>{r(p(e.type,e,e.target,t,Date.now()))}}}function s(t,n,r){for(let o=0;o<n.length;o++){let e=n[o];(r?t.etc:t.et).push(e),t.c.addEventListener(e,t.h,r)}}function c(t,n,r,o,e=window){let i=u(t);e._ejsas||(e._ejsas={}),e._ejsas[n]=i,s(i,r),s(i,o,!0)}window.__jsaction_bootstrap=c;})();
+</script>
   <app-root></app-root>
-<script src="polyfills-FFHMD2TL.js" type="module"></script><script src="main-TF2BHIDP.js" type="module"></script></body>
+<script src="polyfills-FFHMD2TL.js" type="module"></script><script src="main-POQ33QVG.js" type="module"></script></body>
 </html>
+`;
