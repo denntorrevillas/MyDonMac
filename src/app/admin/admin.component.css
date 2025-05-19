@@ -1,0 +1,111 @@
+.header-div{
+    background-color: #FFC300;
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 16px;
+    align-items: center;
+}
+.top{
+    position: static;
+}
+.order{
+    display: grid;
+    justify-content: center;
+   gap: 32px;
+   
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+}
+.order-div{
+    padding: 40px;
+}
+
+.order button{
+    height: 36px;
+    border: none;
+    border-radius: 8px;
+    background-color: #FFC300;
+    padding: 8px;
+    font-weight: bold;
+     padding: 0px 8px;
+}
+.order select{
+    height: 32px;
+    border:solid 0.5px #b0b0b0;
+    border-radius: 8px;
+    background-color: #f1f1f1;
+    
+    padding: 0px 8px;
+
+}
+
+.order-card{
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    padding: 24px;
+    border-radius: 24px;
+}
+.order p{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Call Button Styling */
+.call-button {
+  display: inline-block;
+  padding: 8PX;
+  color: white;
+  background-color: #28a745; /* Green for calling */
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.call-button:hover {
+  background-color: #218838;
+}
+
+button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #FFC300; /* Your brand yellow */
+  color: #222;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e6b800;
+}
+
+
+.sticky-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #FFC300;
+    padding: 10px 20px;
+    text-align: center;
+    z-index: 1000; /* Ensure it stays on top of other content */
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow for better visibility */
+  }
+  
+  .sticky-bottom button {
+    background-color: transparent;
+    color: #1c1c1c;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  

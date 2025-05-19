@@ -1,5 +1,5 @@
 <div class="menu-div">
-  <div class="menu-top">
+  <div class="menu-top" >
     <div class="search">
       <div class="search-content">
         <div class="menus">
@@ -8,7 +8,7 @@
           </div>
           <div class="notif-bag">
             <div class="notif">
-              <button><img src="assets/notification.png" alt=""></button>
+              <button (click)=" onNotif()"><img src="assets/notification.png" alt=""></button>
             </div>
             <div class="bag">
               <button (click)="onBag()"><img src="assets/bag.png" alt=""></button>
@@ -85,7 +85,7 @@
   <div class="sticky-bottom">
     <div class="bottom">
       <div class="notif" style="display: flex; flex-direction: row; justify-content: space-between;">
-        <button (click)="onProfile()"><img src="assets/home.png" alt=""></button>
+        <button (click)="onMenu()"><img src="assets/home.png" alt=""></button>
         <button (click)="onOrders()"><img src="assets/orders.png" alt=""></button>
   
         <button (click)="onProfile()"><img src="assets/profile.png" alt=""></button>

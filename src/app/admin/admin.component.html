@@ -1,0 +1,81 @@
+<div class="top">
+ <div class="header-div">
+      <div class="exit">
+        <button type="button"  style="opacity: 0;">
+          <img src="assets/exit.png" alt="" />
+        </button>
+      </div>
+
+      <div class="header">
+        <h2><b>Customer Orders</b></h2>
+      </div>
+
+      <div class="exit">
+        <button type="button" (click)="logOut()">
+          <img src="assets/exit.png" alt="" />
+          Log Out
+        </button>
+      </div>
+    </div>
+</div>
+
+
+<!-- Orders Container -->
+<div class="order-div">
+ 
+  <div *ngIf="orders.length === 0">
+    <p>No customer orders found.</p>
+  </div>
+
+  <div class="order">
+    
+    <div *ngFor="let order of orders; let i = index" class="order-card">
+      <h5><b>Order No: {{ order.orderNo }}</b></h5>
+      <hr />
+      <br />
+      <p><b>Customer Name:</b> {{ order.userName }}</p>
+      <p><b>Address:</b> {{ order.address }}</p>
+      <p><b>Phone:</b> {{ order.phoneNumber }}</p>
+      <p><b>Order Date:</b> {{ order.timestamp | date: 'short' }}</p>
+      <br />
+      <h6><b>Items: </b></h6>
+      <ul style="list-style-type: none;">
+        <li *ngFor="let item of order.items" style="display: flex; justify-content: space-between;">
+          <div>{{ item.name }} x {{ item.quantity }}</div>
+          <div>₱{{ item.price }}</div>
+        </li>
+      </ul>
+      <hr />
+      <p><b>Subtotal:</b> ₱{{ order.subtotal }}</p>
+      <p><b>Shipping Fee:</b> ₱{{ order.shippingFee }}</p>
+      <hr>
+      <p><b>Total:</b><b> ₱{{ order.total }}</b></p>
+      <h6>
+        <b>Status:</b>
+        <select [(ngModel)]="orders[i].status">
+          <option value="RECEIVED">RECEIVED</option>
+          <option value="PREPARATION">PREPARATION</option>
+          <option value="ON DELIVERY">ON DELIVERY</option>
+          <option value="DELIVERED">DELIVERED</option>
+        </select>
+      </h6>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+        <!-- Call Button -->
+        <a [href]="'tel:' + order.phoneNumber" class="call-button">CALL CUSTOMER</a>
+        <!-- Update Status Button -->
+        <button (click)="updateOrderStatus(order)">UPDATE</button>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+ <div class="sticky-bottom">
+    <div class="bottom">
+      <div class="notif" style="display: flex; flex-direction: row; justify-content: space-between;">
+        <button ><img src="assets/home.png" alt=""></button>
+        <button ><img src="assets/orders.png" alt=""></button>
+  
+        <button ><img src="assets/profile.png" alt=""></button>
+  
+      </div>
+    </div>

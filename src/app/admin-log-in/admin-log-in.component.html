@@ -3,38 +3,41 @@
 
     <div class="left">
       <div class="logo">
-        <img src="assets/logo.png" alt="">
-        <h3>DonMacGo</h3>
+        <img src="assets/logo.png" alt="Admin Logo">
+        <h3>DonMacGo Admin</h3>
       </div>
     </div>
 
     <div class="right">
       <div class="user-input">
-        <h1><b>Login</b></h1>
+        <h1><b>Admin Log In</b></h1>
 
-        <!-- Show error message -->
+        <!-- Display Error Message -->
         <div *ngIf="errorMessage" class="error-message">
           {{ errorMessage }}
         </div>
 
+        <!-- Email Field -->
         <div class="cred">
           <label for="email">Email</label>
-          <input type="email" id="email" placeholder="Enter your email address" [(ngModel)]="email" name="email">
+          <input type="email" id="email" placeholder="Enter your admin email" [(ngModel)]="email" name="email">
         </div>
 
+        <!-- Password Field -->
         <div class="cred">
           <label for="password">Password</label>
           <input type="password" id="password" placeholder="Enter your password" [(ngModel)]="password" name="password">
         </div>
 
+        <!-- Login Button -->
         <div class="button">
           <button type="button" (click)="onLogin()">LOG IN</button>
         </div>
 
+        <!-- Sign-Up Link -->
         <br>
-
         <div class="links">
-          <p>Don't have an account?
+          <p>Don't have an account? 
             <button type="button" (click)="onSignUp()">Sign Up</button>
           </p>
         </div>

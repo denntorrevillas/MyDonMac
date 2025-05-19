@@ -11,8 +11,8 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule],
 })
 export class ProfileComponent implements OnInit {
-  user: any = null; // Full user object
-  userName: string = '';
+  user: any = null; // Holds the full user object
+  userName: string = ''; // Editable fields
   address: string = '';
   email: string = '';
   mobileNumber: string = '';
@@ -36,21 +36,25 @@ export class ProfileComponent implements OnInit {
     const userData = localStorage.getItem('user');
     if (userData) {
       this.user = JSON.parse(userData);
-      this.userName = this.user.fullName || this.user.name || '';
-      this.address = this.user.deliveryAddress || this.user.address || '';
-      this.email = this.user.email || '';
-      this.mobileNumber = this.user.mobileNumber || this.user.phoneNumber || '';
+      this.populateFields();
     }
+  }
+
+  populateFields(): void {
+    this.userName = this.user.fullName || this.user.name || '';
+    this.address = this.user.deliveryAddress || this.user.address || '';
+    this.email = this.user.email || '';
+    this.mobileNumber = this.user.mobileNumber || this.user.phoneNumber || '';
   }
 
   saveProfile(): void {
     if (this.user) {
       this.user = {
         ...this.user,
-        name: this.userName,
-        address: this.address,
+        fullName: this.userName,
+        deliveryAddress: this.address,
         email: this.email,
-        phoneNumber: this.mobileNumber,
+        mobileNumber: this.mobileNumber,
       };
       localStorage.setItem('user', JSON.stringify(this.user));
       alert('Profile saved successfully!');

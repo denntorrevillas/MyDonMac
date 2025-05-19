@@ -19,12 +19,22 @@ export class BagComponent {
   userName: string = '';
   address: string = '';
   phoneNumber: string = '';
+  email: string = '';
   orderNo: string = '';
 
   constructor(private router: Router) {
+    this.checkLoginStatus(); // Ensure the user is logged in
     this.generateOrderNo();
     this.loadCartItems();
     this.loadUserInfo();
+  }
+
+  checkLoginStatus(): void {
+    const isLoggedIn = localStorage.getItem('loggedIn');
+    if (isLoggedIn !== 'true') {
+      // Redirect to the login page if not logged in
+      this.router.navigate(['/login']);
+    }
   }
 
   generateOrderNo(): void {
@@ -82,12 +92,14 @@ export class BagComponent {
       orderNo: this.orderNo,
       userName: this.userName,
       address: this.address,
+      email: this.email,
       phoneNumber: this.phoneNumber,
       items: this.items.filter(item => item.quantity > 0),
       subtotal: this.getSubtotal(),
       shippingFee: this.shippingFee,
       total: this.getTotal(),
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
+      status: 'RECEIVED', // Default status
     };
 
     const existingOrders = JSON.parse(localStorage.getItem('orders') || '[]');

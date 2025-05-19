@@ -1,0 +1,90 @@
+<div class="main-div">
+  <div class="login-div">
+    <div class="left">
+      <div class="logo">
+        <img src="assets/logo.png" alt="Logo" />
+        <h3>DonMacGo Admin</h3>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="user-input">
+        <h1><b>Admin Sign Up</b></h1>
+
+        <!-- Full Name -->
+        <div class="cred">
+          <label for="fullName">Full Name</label>
+          <input
+            type="text"
+            id="fullName"
+            placeholder="Enter your full name"
+            [(ngModel)]="fullName"
+          />
+        </div>
+
+        <!-- Mobile Number -->
+        <div class="cred">
+          <label for="mobileNumber">Mobile Number</label>
+          <input
+            type="tel"
+            id="mobileNumber"
+            placeholder="Enter your mobile number"
+            [(ngModel)]="mobileNumber"
+          />
+        </div>
+
+        <!-- Email -->
+        <div class="cred">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email address"
+            [(ngModel)]="email"
+          />
+        </div>
+
+        <!-- Password -->
+        <div class="cred">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            [(ngModel)]="password"
+            (input)="evaluatePasswordStrength()"
+          />
+          <div class="progress mt-2">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              [ngStyle]="{
+                'width': strengthPercentage + '%',
+                'background-color': getStrengthColor()
+              }"
+              [attr.aria-valuenow]="strengthPercentage"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              {{ passwordStrength }}
+            </div>
+          </div>
+        </div>
+
+        <!-- Sign Up Button -->
+        <div class="button">
+          <button type="button" (click)="onSignUp()">SIGN UP</button>
+        </div>
+
+        <!-- Log In Link -->
+        <br />
+        <div class="links">
+          <p>
+            Already have an account?
+            <button type="button" (click)="onLogIn()">Log In</button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

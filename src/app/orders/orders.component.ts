@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -7,23 +7,33 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-orders',
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.css'],
-  imports: [CommonModule, FormsModule]
-
+  imports: [CommonModule, FormsModule],
 })
-export class OrdersComponent {
+export class OrdersComponent implements OnInit {
   orders: any[] = [];
 
-  constructor(private router: Router) {
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    this.checkLoginStatus(); // Check login status on initialization
     this.loadOrders();
   }
 
-  onMenu(): void {
-    this.router.navigate(['/menu']);
+  // Redirect to login if the user is not logged in
+  checkLoginStatus(): void {
+    const isLoggedIn = localStorage.getItem('loggedIn');
+    if (isLoggedIn !== 'true') {
+      this.router.navigate(['/login']);
+    }
   }
 
   // Load orders from localStorage
   loadOrders(): void {
     const storedOrders = localStorage.getItem('orders');
     this.orders = storedOrders ? JSON.parse(storedOrders) : [];
+  }
+
+  onMenu(): void {
+    this.router.navigate(['/menu']);
   }
 }

@@ -118,4 +118,12 @@ mobileNumber: string = '';
   onOrders(): void {
     this.router.navigate(['/orders']);
   }
+
+  onMenu(): void {
+    this.router.navigate(['/menu']);
+  }
+
+  onNotif(): void {
+    this.router.navigate(['/notification']);
+  }
 }

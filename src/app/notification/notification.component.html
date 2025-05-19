@@ -1,0 +1,57 @@
+<div class="notif-div">
+  <div class="top">
+    <div class="header-div">
+      <div class="exit">
+        <button type="button" (click)="onMenu()">
+          <img src="assets/exit.png" alt="exit" />
+        </button>
+      </div>
+
+      <div class="header">
+        <h2><b>Notifications</b></h2>
+      </div>
+
+      <div class="exit" style="opacity: 0;">
+        <button type="button" (click)="onMenu()">
+          <img src="assets/exit.png" alt="exit" />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification List -->
+  <div *ngIf="notifications.length > 0; else noNotifications" class="container mt-4">
+    <ul class="list-group">
+  <li *ngFor="let notification of notifications" class="list-group-item">
+    <p class="mb-1">
+      <strong>Order No:</strong> {{ notification.orderNo }}
+    </p>
+    <p class="mb-1">
+      <strong>Status:</strong> 
+      <span
+        class="badge"
+        [ngClass]="{
+          'bg-primary': notification.status === 'RECEIVED',
+          'bg-warning text-dark': notification.status === 'PREPARATION',
+          'bg-info text-dark': notification.status === 'ON DELIVERY',
+          'bg-success': notification.status === 'DELIVERED'
+        }"
+      >
+        {{ notification.status }}
+      </span>
+    </p>
+    <p class="text-muted">
+      <small><strong>Updated On:</strong> {{ notification.timestamp | date: 'short' }}</small>
+    </p>
+  </li>
+</ul>
+
+  </div>
+
+  <!-- No Notifications Message -->
+  <ng-template #noNotifications>
+    <div class="text-center mt-5 text-muted">
+      <p>No notifications available.</p>
+    </div>
+  </ng-template>
+</div>
